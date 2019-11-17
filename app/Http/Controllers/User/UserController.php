@@ -5,9 +5,14 @@ namespace App\Http\Controllers\User;
 use Illuminate\Http\Request;
 use App\Models\User\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
+use App\Mail\Welcome;
+use Illuminate\Support\Str;
 use Redirect;
 use Auth;
+use Exception;
 use Session;
+use Mail;
 
 
 class UserController extends Controller
@@ -42,7 +47,7 @@ class UserController extends Controller
     $user->password = Hash::make($provisional);
     $user->provisional = $provisional;
     $user->save();
-    
+
     Mail::to($user)->send(new Welcome($user));
     return redirect::route('users.show',['user'=>$user->id]);
   }
