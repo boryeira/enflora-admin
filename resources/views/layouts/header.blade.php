@@ -19,6 +19,14 @@
             <a class="nav-link" href="{{route('users.index')}}">Usuarios</a>
         </li>
       </ul>
+      <ul class="nav navbar-nav">
+          <li class="nav-item">
+              <form class="form-info m-3" action="{{route('logout')}}" method="POST" >
+                  <input type="hidden" name="_token" id="csrf-token" value="{{ Session::token() }}" />
+                  <button class="d-flex align-items-center btn btn-danger btn-sm">Cerrar Sesión<i class="ti-shift-right ml-2 font-20"></i></button>
+                </form>
+          </li>
+      </ul>
 
     </div>
   </nav>
