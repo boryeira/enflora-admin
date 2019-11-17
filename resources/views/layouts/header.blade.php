@@ -10,13 +10,13 @@
         <a class="nav-link" href="{{url('/')}}">Inicio</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" href="#">Variedades</a>
+            <a class="nav-link" href="{{route('orders.index')}}">Ordenes</a>
+          </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{route('products.index')}}">Productos</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link disabled" href="#">Receta Medica</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link " href="{{url('/profile')}}">Perfil</a>
+            <a class="nav-link" href="{{route('users.index')}}">Usuarios</a>
         </li>
       </ul>
 
