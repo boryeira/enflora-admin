@@ -31,7 +31,20 @@ class UserController extends Controller
 
   public function store(Request $request)
   {
-    return view('user.show')->with('user',$user);
+    $provisional = Str::random(8);
+
+    $user = new User();
+    $user->first_name = $request->first_name;
+    $user->last_name = $request->last_name;
+    $user->rut = $request->rut;
+    $user->email = $request->email;
+    $user->role_id = 2;
+    $user->password = Hash::make($provisional);
+    $user->provisional = $provisional;
+    $user->save();
+    
+    Mail::to($user)->send(new Welcome($user));
+    return redirect::route('users.show',['user'=>$user->id]);
   }
 
   public function show(User $user)

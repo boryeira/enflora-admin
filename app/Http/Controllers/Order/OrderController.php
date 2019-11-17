@@ -13,11 +13,15 @@ class OrderController extends Controller
         $this->middleware('auth');
     }
 
-
-
+    
     public function index()
     {
         $orders = Order::orderBy('created_at','desc')->get();
         return view('order.index')->with('orders',$orders);
+    }
+
+    public function show(Order $order)
+    {
+      return view('order.show')->with('order',$order);
     }
 }

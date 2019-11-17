@@ -12,6 +12,7 @@
                                 <th scope="col">usuario</th>
                                 <th scope="col">Monto</th>
                                 <th scope="col">Estado</th>
+                                <th scope="col"></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -21,6 +22,7 @@
                                     <td>@if($order->user){{$order->user->full_name}} @else -- @endif</td>
                                     <td>{{$order->amount}}</td>
                                     <td>{{$order->status['admin']}}</td>
+                                    <td><a class="btn btn-info" href="{{route('orders.show',['order'=>$order->id])}}">Ver</a></td>
                                 </tr>
                                 @endforeach
 
@@ -46,7 +48,9 @@
     <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.20/datatables.min.js" defer></script>
     <script>
         $(document).ready( function () {
-            $('#ordersTable').DataTable();
+            $('#ordersTable').DataTable({
+                "order": [[ 0, "desc" ]]
+            } );
         } );
     </script>
 

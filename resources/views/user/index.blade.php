@@ -4,6 +4,7 @@
 
     <div class="row justify-content-center">
         <div class="col-12">
+            <a class="btn btn-success mt-2 mb-2" href="{{route('users.create')}}">Nuevo Usuario</a>
                 
                         <table id="usersTable" class="table">
                             <thead>
