@@ -5,7 +5,7 @@
     Has sido seleccionado para ser miembro del club enFlora!.
   </p>
 
-    <a class="btn btn-primary btn-block" href="https://socios.enfloraclub.cl/login">Ingresa acá</a>
+    Ingresa en <a class="btn btn-primary btn-block" href="https://socios.enfloraclub.cl/login">socios.enfloraclub.cl</a>
   <p>
     Activa tu membresía con las siguientes credenciales.<br /><br />
 
