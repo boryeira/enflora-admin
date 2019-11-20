@@ -57,7 +57,7 @@ class ProductController extends Controller
 
         $product->save();
     
-        return Redirect::route('products.show',['product',$product->id]);
+        return Redirect::route('products.show',['product'=>$product->id]);
     }
 
     public function update(Request $request, Product $product)
