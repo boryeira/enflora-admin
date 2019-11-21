@@ -4,7 +4,8 @@
 
     <div class="row justify-content-center">
         <div class="col-12">
-                
+                <a class="btn btn-success mt-2 mb-2" href="{{route('orders.create')}}">Nueva Orden</a>
+
                         <table id="ordersTable" class="table">
                             <thead>
                                 <tr>
