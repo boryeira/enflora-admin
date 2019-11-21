@@ -86,7 +86,7 @@ class OrderController extends Controller
 
         $order->amount = $order->orderItems->sum('amount');
         if($order->save()) {
-          return Redirect::route('orders.show',['order'=>$order->id]);
+          return Redirect::route('orders.index');
         } else {
           return Redirect::back()->withErrors(array('db' => 'error en base de datos'));
         }

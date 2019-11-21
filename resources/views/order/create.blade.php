@@ -7,7 +7,7 @@
         <div class="col-md-12">
             <div class="form-group">
                 <label>Usuario</label>
-                <select class="form-control">
+                <select class="form-control" name="user">
                     @foreach (App\Models\User\User::all() as $user)
                     <option value="{{$user->id}}">{{$user->full_name}}</option>
                     @endforeach
