@@ -27,7 +27,9 @@ class OrderController extends Controller
 
     public function create()
     {
-      return view('order.create');
+        $products = Product::where('status',1)->get();
+        // dd($products);
+        return view('orders.create')->with('products', $products);
     }
 
     public function store(Request $request)
