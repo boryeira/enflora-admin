@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="row justify-content-center">
-        <div class="col-3">
+        <div class="col-md-3">
                 <div class="card" >
                     <div class="card-body">
                         <h5 class="card-title">#{{$order->id}}</h5>
@@ -12,12 +12,15 @@
                         
                     </div>
                 </div>
+                @if($order->status['id'] == 2)
+                <a class="btn btn-info btn-block mt-2 " href="{{route('orders.payflow')}}">Pagar</a>
+                @endif
                 @if($order->status['id'] == 3)
                 <a class="btn btn-info btn-block mt-2 " href="#">Entregado</a>
                 @endif
                 <button class="btn btn-danger btn-block mt-2 ">Eliminar</button>
         </div>
-        <div class="col-9">
+        <div class="col-md-9">
 
         </div>
     </div>
