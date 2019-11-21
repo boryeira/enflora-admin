@@ -15,7 +15,7 @@
                     </div>
                 </div>
                 @if($order->status['id'] == 2)
-                <a class="btn btn-info btn-block mt-2 " href="{{route('orders.payflow')}}">Pagar</a>
+                <a class="btn btn-info btn-block mt-2 " href="{{route('orders.payflow',['order'=>$order->id])}}">Pagar</a>
                 @endif
                 @if($order->status['id'] == 3)
                 <a class="btn btn-info btn-block mt-2 " href="#">Entregado</a>
