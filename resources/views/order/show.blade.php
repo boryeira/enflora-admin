@@ -28,6 +28,7 @@
                     <label>Flow url</label>
                     <p>{{$order->flow_url}}</p>
                 </div>
+                @endif
             </div>
         </div>
     </div>
