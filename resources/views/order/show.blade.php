@@ -9,6 +9,8 @@
                         <h5 class="card-title">#{{$order->id}}</h5>
                         <span class="badge badge-{{$order->status['css']}}">{{$order->status['admin']}}</span>
                         <p>{{$order->user->full_name}}</p>
+                        <label>Flow url</label>
+                        <p>{{$order->flow_url}}</p>
                         
                     </div>
                 </div>
@@ -21,7 +23,7 @@
                 <button class="btn btn-danger btn-block mt-2 ">Eliminar</button>
         </div>
         <div class="col-md-9">
-
+                <div class="card" >
         </div>
     </div>
 @endsection
