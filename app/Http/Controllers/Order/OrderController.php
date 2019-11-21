@@ -84,7 +84,7 @@ class OrderController extends Controller
             
         }
 
-        $order->amount = $order->items->sum('amount');
+        $order->amount = $order->orderItems->sum('amount');
         if($order->save()) {
           return Redirect::route('orders.show',['order'=>$order->id]);
         } else {
