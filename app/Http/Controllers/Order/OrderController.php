@@ -5,6 +5,11 @@ namespace App\Http\Controllers\Order;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Order\Order;
+use App\Models\Order\OrderItem;
+use App\Models\Product\Product;
+use Auth;
+use Session;
+use Redirect;
 
 class OrderController extends Controller
 {
