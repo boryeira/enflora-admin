@@ -46,7 +46,6 @@ class FlowController extends Controller
             ]);
           }
           catch ( Exception $e) {
-              
               return Redirect::back()->withErrors(array('flow' => $e->getMessage()));
           }
 
