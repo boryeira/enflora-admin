@@ -96,4 +96,25 @@ class OrderController extends Controller
     {
       return view('order.show')->with('order',$order);
     }
+
+    public function destroy(Order $order)
+    {
+      foreach ($order->orderItems as $item) {
+        $product = $item->product;
+        $product->consumed = $product->consumed - $item->quantity;
+        $product->save();
+        $item->delete();
+      }
+      $order->delete();
+      Session::flash('success','Orden eliminada con Éxito');
+      return Redirect::route('orders.index');
+    }
+
+    public function delivered(Order $order)
+    {
+        $order->status = 4;
+        $order->delivery_date = today();
+        $order->save();
+        return redirect::back();
+    }
 }

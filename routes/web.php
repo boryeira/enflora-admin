@@ -20,4 +20,4 @@ Route::resource('/products', 'Product\ProductController');
 
 Route::resource('/orders', 'Order\OrderController');
 Route::get('/orders/{order}/payflow', 'Flow\FlowController@payOrder')->name('orders.payflow');
-
+Route::get('/orders/{order}/delivered', 'Order\OrderController@delivered')->name('orders.delivered');

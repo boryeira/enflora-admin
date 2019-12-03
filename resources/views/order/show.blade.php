@@ -14,12 +14,19 @@
                     </div>
                 </div>
                 @if(($order->flow_url == null) && ($order->status['id'] == 2))
-                    <a class="btn btn-info btn-block mt-2 " href="{{route('orders.payflow',['order'=>$order->id])}}">Link de Pago</a>
+                <a class="btn btn-info btn-block mt-2 " href="{{route('orders.payflow',['order'=>$order->id])}}">Link de Pago</a>
+                
                 @endif
                 @if($order->status['id'] == 3)
                 <a class="btn btn-info btn-block mt-2 " href="#">Entregado</a>
                 @endif
-                <button class="btn btn-danger btn-block mt-2 ">Eliminar</button>
+                @if($order->status['id'] !== 4)
+                <form  action="{{route('orders.destroy',['order'=>$order->id])}}" method="POST" >
+                    @method('DELETE')
+                    @csrf
+                    <button class="btn btn-danger btn-block mt-2"   type="submit" ><i class="ti-trash"></i>Eliminar</button>
+                </form>
+                @endif
         </div>
         <div class="col-md-9">
             <div class="card mb-2" >
