@@ -18,24 +18,52 @@
                 
                 @endif
                 @if($order->status['id'] == 3)
-                <a class="btn btn-info btn-block mt-2 " href="#">Entregado</a>
+                <a class="btn btn-info btn-block mt-2 " href="{{route('orders.delivered',['order'=>$order->id])}}">Entregado</a>
                 @endif
-                @if($order->status['id'] !== 4)
+                @if($order->status['id'] != 4)
                 <form  action="{{route('orders.destroy',['order'=>$order->id])}}" method="POST" >
                     @method('DELETE')
                     @csrf
+
+
                     <button class="btn btn-danger btn-block mt-2"   type="submit" ><i class="ti-trash"></i>Eliminar</button>
                 </form>
                 @endif
         </div>
         <div class="col-md-9">
+            @if($order->flow_url !== null)
             <div class="card mb-2" >
-                @if($order->flow_url !== null)
+                
                 <div class="card-body">
                     <label>Flow url</label>
                     <p>{{$order->flow_url}}</p>
                 </div>
-                @endif
+                
+            </div>
+            @endif
+            <div class="card mb-2" >
+                    <ul class="list-group list-group-flush">
+                            @foreach ($order->orderItems as $item)
+                            <li class="list-group-item">
+                                <div class="row ">
+                                    <div class="col-2">
+                                        <img src="{{url($item->img)}}" class="rounded float-left" width="40">
+                                    </div>
+                                    <div class="col-6 text-left">
+                                        <h6>{{$item->name}}</h6>
+                                    </div>                  
+                                    <div class="col-4">
+                                        <h6>${{number_format($item->amount, 0, ',', '.') }}</h6>
+                                        <span>{{$item->quantity}} @if($item->quantity == 1) {{$item->unit['singular']}} @else {{$item->unit['plural']}} @endif</span>
+                                    </div>
+                                </div>
+                            </li>
+                            @endforeach
+                            <li class="list-group-item ">
+                                <div class="float-right text-danger"><h5>Total: ${{number_format($order->orderItems()->sum('amount'), 0, ',', '.') }}</h5></div>
+                            </li>    
+                        </ul>
+                    
             </div>
         </div>
     </div>
