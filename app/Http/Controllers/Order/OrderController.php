@@ -39,6 +39,7 @@ class OrderController extends Controller
         $items = $request->all();
         unset($items['_token']);
         $items = array_filter($items);
+        dd();
         // $total = 0;
         if($request->total < 20000){
           return Redirect::back()->withErrors(array('zero' => '$20.000 es el minimo de compra'));
@@ -48,11 +49,14 @@ class OrderController extends Controller
         if(count($items)==0){
             return Redirect::back()->withErrors(array('zero' => 'Debe seleccionar ingresar la cantidad'));
         }
+
+        dd($items);
         foreach($items as $key => $q){
             
             $product = Product::find($key);
+
             
-            if($product->available < $q)
+            if($product->available < $q )
             {
                 return Redirect::back()->withErrors(array('quantity' => 'Supera el stock de '.$product->name));
             }
