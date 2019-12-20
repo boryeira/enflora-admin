@@ -39,7 +39,7 @@ class OrderController extends Controller
         $items = $request->all();
         unset($items['_token']);
         $items = array_filter($items);
-        dd();
+        
         // $total = 0;
         if($request->total < 20000){
           return Redirect::back()->withErrors(array('zero' => '$20.000 es el minimo de compra'));
