@@ -35,9 +35,10 @@ class OrderController extends Controller
     public function store(Request $request)
     {
       
-
+        $userId = $request->user;
         $items = $request->all();
         unset($items['_token']);
+        unset($items['user']);
         $items = array_filter($items);
         
         // $total = 0;
@@ -63,7 +64,7 @@ class OrderController extends Controller
         }
 
         $order = new Order;
-        $order->user_id = $request->user;
+        $order->user_id = $userId;
         $order->quantity = array_sum($items);
         $order->status = 2;
         $order->save();
