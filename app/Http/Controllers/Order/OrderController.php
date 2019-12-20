@@ -51,7 +51,7 @@ class OrderController extends Controller
             return Redirect::back()->withErrors(array('zero' => 'Debe seleccionar ingresar la cantidad'));
         }
 
-        dd($items);
+        
         foreach($items as $key => $q){
             
             $product = Product::find($key);
