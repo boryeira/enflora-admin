@@ -34,4 +34,13 @@ class Product extends Model
       ];
       return $rawStatus[$value];
     }
+
+    public function getUnitAttribute($value)
+    {
+      $rawStatus = [
+        '1'=> ['id'=>'1','singular'=>'Unidad','plural'=>'Unidades'],
+        '2'=> ['id'=>'2','singular'=>'Gramo','plural'=>'Gramos'],
+      ];
+      return $rawStatus[$value];
+    }
 }
