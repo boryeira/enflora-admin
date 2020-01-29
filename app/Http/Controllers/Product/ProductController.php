@@ -47,7 +47,7 @@ class ProductController extends Controller
         $product->status = 1;
         $product->consumed = 0;
 
-        $product->save();
+        
 
         if ($request->img) {
             $resize = Image::make($request->img)->fit(680, 450)->encode('jpg');

@@ -122,4 +122,12 @@ class OrderController extends Controller
         $order->save();
         return redirect::back();
     }
+
+    public function paid(Order $order)
+    {
+        $order->status = 3;
+        $order->pay_date = today();
+        $order->save();
+        return redirect::back();
+    }
 }
